@@ -16,45 +16,41 @@ else:
     print("\nI’m sorry, but it seems that you are not registered.")
     exit()
 
-text_1 = """Situated about 10 miles west of Kemmerer
+text = ["""Situated about 10 miles west of Kemmerer
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply
 some 1000 feet above Twin Creek Valley
 to an elevation of more than 7500 feet
 above sea level. The butte is located just
 north of US 30N and the Union Pacific Railroad,
-which traverse the valley."""
+which traverse the valley.""",
 
-text_2 = """The history of the Union Pacific Railroad
+"""The history of the Union Pacific Railroad
 in this region is closely tied to the
 construction of the transcontinental
 railroad in the 19th century. Railroads
 helped to shape economic and cultural
 landscapes, facilitating trade and
-movement across vast distances."""
+movement across vast distances.""",
 
-text_3 = """Fossilized remains of ancient plants and animals
+"""Fossilized remains of ancient plants and animals
 have been discovered in Fossil Butte, providing
 evidence of prehistoric ecosystems. These fossils
 include fish, insects, and reptiles, which are
 remarkably well-preserved, offering scientists
-valuable insights into Earth's distant past."""
+valuable insights into Earth's distant past."""]
 
 user_choice = input("\nWhich text would you like to analyze? Enter a number btw. 1 and 3 to select: ")
 
-if not user_choice.isdigit():
-    print("\nInvalid input. Please enter a number between 1 and 3.")
-    exit()
-
-choices = int(user_choice)
-if choices == 1:
-   selected_text = text_1
-elif choices == 2:
-    selected_text = text_2
-elif choices == 3:
-    selected_text = text_3
+if user_choice.isdigit():
+    user_choice = int(user_choice)
+    if 1 <= user_choice <= len(text):
+        selected_text = text[user_choice - 1]
+    else:
+        print("\nInvalid choice. Please enter a number between 1 and", len(texts))
+        exit()
 else:
-    print("\nInvalid choice. The program will now exit.")
+    print("\nInvalid input. Please enter a number.")
     exit()
 
 text_split = selected_text.split()
