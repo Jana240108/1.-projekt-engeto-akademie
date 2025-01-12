@@ -76,12 +76,9 @@ print("The sum of all numbers written as words is: ", sum(numbers_as_word))
 print("A bar chart for the frequency of different word lengths in the text.")
 word_lengths = {}
 
-for word in text_cleaned:  
-    word_length = len(word)  
-    if word_length in word_lengths:
-        word_lengths[word_length] += 1  
-    else:
-        word_lengths[word_length] = 1  
+for word in text_cleaned:
+    word_length = len(word)
+    word_lengths[word_length] = word_lengths.get(word_length, 0) + 1
 
 for length in sorted(word_lengths.keys()):
-    print(str(length) + "| " + "*" * word_lengths[length] + " " + str(word_lengths[length]))
+    print(f"{length:>3}| {'*' * word_lengths[length]} {word_lengths[length]}")
