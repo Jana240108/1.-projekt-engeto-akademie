@@ -47,7 +47,7 @@ if user_choice.isdigit():
     if 1 <= user_choice <= len(text):
         selected_text = text[user_choice - 1]
     else:
-        print("\nInvalid choice. Please enter a number between 1 and", len(texts))
+        print("\nInvalid choice. Please enter a number between 1 and", len(text))
         exit()
 else:
     print("\nInvalid input. Please enter a number.")
